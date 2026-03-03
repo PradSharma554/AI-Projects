@@ -1,0 +1,7 @@
+This is a plain text document used for testing.
+
+It contains multiple paragraphs that should be parsed correctly.
+
+The text parser should handle this format without any special processing.
+
+Each paragraph is separated by a blank line, which is the standard convention for plain text documents.

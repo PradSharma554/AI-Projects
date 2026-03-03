@@ -1,0 +1,38 @@
+name: RAG Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    services:
+      ollama:
+        image: ollama/ollama
+        ports:
+          - 11434:11434
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install ".[dev]"
+
+      - name: Pull Ollama model
+        run: |
+          curl -s http://localhost:11434/api/pull -d '{"name": "llama3.2"}' || echo "Model pull failed, eval may be limited"
+
+      - name: Run evaluation
+        run: python eval/runner.py --config config.yaml
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: eval/results.json

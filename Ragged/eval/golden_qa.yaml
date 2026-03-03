@@ -1,0 +1,12 @@
+questions:
+  - id: "q1"
+    question: "How do I install Ragged?"
+    expected_sources: ["sample.md"]
+    expected_keywords: ["pip", "install"]
+    reference_answer: "Install Ragged using pip: pip install ragged"
+
+  - id: "q2"
+    question: "What retrieval method does Ragged use?"
+    expected_sources: ["sample.md"]
+    expected_keywords: ["BM25", "vector", "hybrid", "Reciprocal Rank Fusion"]
+    reference_answer: "Ragged uses BM25 + vector search with Reciprocal Rank Fusion."

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Ragged — Chat{% endblock %}
+{% block content %}
+<div class="chat-container">
+  <div class="chat-messages" id="messages">
+    <div class="message system">
+      Ask a question about your documents. Answers include citations to source material.
+    </div>
+  </div>
+  <form class="chat-input" id="chat-form">
+    <input type="text" id="question" placeholder="Ask a question..." autocomplete="off" autofocus>
+    <button type="submit" id="send-btn">Send</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Ragged — Collections{% endblock %}
+{% block content %}
+<div class="collections-container">
+  <h1>Collections</h1>
+  <div class="ingest-form">
+    <h2>Ingest Documents</h2>
+    <form id="ingest-form">
+      <input type="text" id="ingest-dir" placeholder="Path to documents directory" required>
+      <input type="text" id="ingest-collection" placeholder="Collection name" value="default">
+      <button type="submit">Ingest</button>
+    </form>
+    <div id="ingest-status"></div>
+  </div>
+  <div class="collection-list" id="collection-list">
+    <h2>Indexed Collections</h2>
+    <div id="collections-data">Loading...</div>
+  </div>
+</div>
+{% endblock %}
