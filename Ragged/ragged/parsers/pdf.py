@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import fitz  # pymupdf
+import pymupdf
 
 from ragged.models import Document
 
@@ -14,7 +14,7 @@ class PdfParser:
         file_path = Path(file_path)
         documents = []
 
-        with fitz.open(file_path) as doc:
+        with pymupdf.open(file_path) as doc:
             for page_num, page in enumerate(doc, start=1):
                 text = page.get_text()
                 if text.strip():
